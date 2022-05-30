@@ -12,14 +12,14 @@ class ViewControllerInteractorSpy: ViewControllerInteractorProtocol {
 
     var invokedGetPhotos = false
     var invokedGetPhotosCount = 0
-    var invokedGetPhotosParameters: (forPage: Int, Void)?
-    var invokedGetPhotosParametersList = [(forPage: Int, Void)]()
+    var invokedGetPhotosParameters: (forPage: Int, withTag: String?)?
+    var invokedGetPhotosParametersList = [(forPage: Int, withTag: String?)]()
 
-    func getPhotos(forPage: Int) {
+    func getPhotos(forPage: Int, withTag: String?) {
         invokedGetPhotos = true
         invokedGetPhotosCount += 1
-        invokedGetPhotosParameters = (forPage, ())
-        invokedGetPhotosParametersList.append((forPage, ()))
+        invokedGetPhotosParameters = (forPage, withTag)
+        invokedGetPhotosParametersList.append((forPage, withTag))
     }
 
     var invokedSetDelegate = false

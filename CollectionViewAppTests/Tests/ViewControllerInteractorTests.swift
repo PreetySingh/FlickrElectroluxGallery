@@ -23,7 +23,7 @@ class ViewControllerInteractorTests: XCTestCase {
         let result: Result<FlickrModel.Photos?, EquatableError> = .success(successResponse)
         
         // When
-        sut.getPhotos(forPage: 1)
+        sut.getPhotos(forPage: 1, withTag: "electrolux")
         presenter.handlePhotosReceived(.success(successResponse))
         
         // Then

@@ -10,8 +10,9 @@ import Foundation
 protocol ViewControllerInteractorProtocol {
     /// Get Photo from API of given page
     /// - Parameters:
-    /// - forPage: Page number to be fetched
-    func getPhotos(forPage: Int)
+    ///    - forPage: Page number to be fetched
+    ///    - withTag: Search bar text tag to be searched
+    func getPhotos(forPage: Int, withTag: String?)
     /// sets delegate of viewController which conforns to DisplayPhotosProtocol
     /// - Parameters:
     /// - delegate: ViewController delegate
@@ -48,9 +49,13 @@ class ViewControllerInteractor: ViewControllerInteractorProtocol {
         setDelegate = delegate
     }
     
-    func getPhotos(forPage: Int) {
+    func getPhotos(forPage: Int, withTag: String?) {
         photosState = .loading
-        worker?.fetchFlickrImage(tag: "electrolux", pageNumber: forPage) {
+        var searchTag = "electrolux"
+        if let userTag = withTag, !userTag.isEmpty, !userTag.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            searchTag = userTag
+        }
+        worker?.fetchFlickrImage(tag: searchTag, pageNumber: forPage) {
             [weak self] result in
             switch result {
             case .success(let response):

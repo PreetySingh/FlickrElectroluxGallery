@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: Collection View Datasource & Delegate
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return flickrImages?.count ?? 0
@@ -28,5 +29,25 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         if let imageData = flickrImages?[indexPath.row] {
             interactor?.showPhoto(flickrImage: imageData)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerCellId", for: indexPath)
+        headerView.addSubview(tagSearchBar)
+        tagSearchBar.alignToSuperView(superView: headerView)
+        return headerView
+    }
+}
+
+// MARK: Searchbar Delegate
+extension ViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        interactor?.getPhotos(forPage: 1, withTag: searchBar.text)
+        searchBar.resignFirstResponder()
     }
 }

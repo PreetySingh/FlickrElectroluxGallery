@@ -31,5 +31,6 @@ class CustomCollectionViewLayout: UICollectionViewFlowLayout {
         let imageViewSize = screenSize.width/3 - (3 * itemSpacing)
         itemSize = CGSize(width: imageViewSize, height: imageViewSize)
         minimumInteritemSpacing = itemSpacing
+        headerReferenceSize = CGSize(width: screenSize.width, height: 48)
     }
 }

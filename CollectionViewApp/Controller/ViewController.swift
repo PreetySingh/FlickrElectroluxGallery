@@ -33,6 +33,17 @@ class ViewController: UIViewController {
     // MARK: Private Properties
     private lazy var photoCollectionView = UICollectionView(frame: view.frame, collectionViewLayout: customLayout)
     private lazy var customLayout = CustomCollectionViewLayout.init(screenSize: view.frame.size)
+    lazy var tagSearchBar : UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search tags here..."
+        searchBar.delegate = self
+        searchBar.tintColor = .lightGray
+        searchBar.barTintColor = .white
+        searchBar.barStyle = .default
+        searchBar.sizeToFit()
+        searchBar.showsCancelButton = true
+        return searchBar
+    }()
     
     // MARK: Lifecycle
     required init(interactor: ViewControllerInteractorProtocol?) {
@@ -52,7 +63,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        interactor?.getPhotos(forPage: 1)
+        interactor?.getPhotos(forPage: 1, withTag: nil)
         super.viewDidAppear(animated)
     }
     
@@ -65,6 +76,7 @@ class ViewController: UIViewController {
         photoCollectionView.dataSource = self
         // Register Cell
         photoCollectionView.register(FlickrPhotoCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        photoCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
         // Set Constraints
         photoCollectionView.alignToSuperView(superView: view)
         // Add Loading Spinner
