@@ -8,15 +8,15 @@
 import Foundation
 
 // MARK: - Flickr Data Models
-struct FlickrModel: Codable {
+struct FlickrModel: Codable, Equatable {
     
-    struct Photos: Codable {
+    struct Photos: Codable, Equatable {
         let photos: PhotoCollection
         let stat: String
     }
     
     // MARK: - Photos Collection Model
-    struct PhotoCollection: Codable {
+    struct PhotoCollection: Codable,Equatable {
         let page: Int
         let pages: Int
         let perpage: Int
@@ -25,7 +25,7 @@ struct FlickrModel: Codable {
     }
     
     // MARK: - Photo Model
-    struct PhotoModel: Codable {
+    struct PhotoModel: Codable,Equatable {
         let id: String
         let owner: String
         let secret: String

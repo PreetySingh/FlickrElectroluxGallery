@@ -21,6 +21,14 @@
 		2B36861A284004AC001ADE7B /* CollectionViewAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B368619284004AC001ADE7B /* CollectionViewAppUITestsLaunchTests.swift */; };
 		2B36862A28400AE6001ADE7B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B36862928400AE6001ADE7B /* APIClient.swift */; };
 		2B4CA5672841660000EEBEB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4CA5662841660000EEBEB7 /* Constants.swift */; };
+		2B72E691284507FE000382D2 /* ViewControllerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72E690284507FE000382D2 /* ViewControllerPresenterSpy.swift */; };
+		2B72E6932845080F000382D2 /* ViewControllerInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72E6922845080F000382D2 /* ViewControllerInteractorSpy.swift */; };
+		2B72E6952845092C000382D2 /* ViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72E6942845092C000382D2 /* ViewControllerSpy.swift */; };
+		2B72E69828450A64000382D2 /* ViewControllerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72E69728450A64000382D2 /* ViewControllerPresenterTests.swift */; };
+		2B72E69A28450BB3000382D2 /* ViewControllerInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72E69928450BB3000382D2 /* ViewControllerInteractorTests.swift */; };
+		2B72E69C28450C79000382D2 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72E69B28450C79000382D2 /* ViewControllerTests.swift */; };
+		2B72E69E28450C99000382D2 /* ViewControllerWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72E69D28450C99000382D2 /* ViewControllerWorkerSpy.swift */; };
+		2B72E6A328450DE5000382D2 /* FlickrModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72E6A228450DE5000382D2 /* FlickrModel+Factory.swift */; };
 		2BF70D5A2841ED0300B24910 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF70D592841ED0300B24910 /* CustomCollectionViewLayout.swift */; };
 		2BF70D5C2841F68E00B24910 /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF70D5B2841F68E00B24910 /* FlickrPhotoCell.swift */; };
 		2BF70D5E2842129F00B24910 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF70D5D2842129E00B24910 /* UIViewExtensions.swift */; };
@@ -68,6 +76,14 @@
 		2B368619284004AC001ADE7B /* CollectionViewAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2B36862928400AE6001ADE7B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		2B4CA5662841660000EEBEB7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B72E690284507FE000382D2 /* ViewControllerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterSpy.swift; sourceTree = "<group>"; };
+		2B72E6922845080F000382D2 /* ViewControllerInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInteractorSpy.swift; sourceTree = "<group>"; };
+		2B72E6942845092C000382D2 /* ViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSpy.swift; sourceTree = "<group>"; };
+		2B72E69728450A64000382D2 /* ViewControllerPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterTests.swift; sourceTree = "<group>"; };
+		2B72E69928450BB3000382D2 /* ViewControllerInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInteractorTests.swift; sourceTree = "<group>"; };
+		2B72E69B28450C79000382D2 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		2B72E69D28450C99000382D2 /* ViewControllerWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWorkerSpy.swift; sourceTree = "<group>"; };
+		2B72E6A228450DE5000382D2 /* FlickrModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlickrModel+Factory.swift"; sourceTree = "<group>"; };
 		2BF70D592841ED0300B24910 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		2BF70D5B2841F68E00B24910 /* FlickrPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCell.swift; sourceTree = "<group>"; };
 		2BF70D5D2842129E00B24910 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -142,6 +158,9 @@
 		2B36860C284004AC001ADE7B /* CollectionViewAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				2B72E6A128450DD0000382D2 /* Factories */,
+				2B72E69628450A11000382D2 /* Tests */,
+				2B72E68F284507E4000382D2 /* Spies */,
 				2B36860D284004AC001ADE7B /* CollectionViewAppTests.swift */,
 			);
 			path = CollectionViewAppTests;
@@ -181,6 +200,35 @@
 				2BF70D622842147600B24910 /* Model */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2B72E68F284507E4000382D2 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				2B72E690284507FE000382D2 /* ViewControllerPresenterSpy.swift */,
+				2B72E6922845080F000382D2 /* ViewControllerInteractorSpy.swift */,
+				2B72E6942845092C000382D2 /* ViewControllerSpy.swift */,
+				2B72E69D28450C99000382D2 /* ViewControllerWorkerSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		2B72E69628450A11000382D2 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2B72E69728450A64000382D2 /* ViewControllerPresenterTests.swift */,
+				2B72E69928450BB3000382D2 /* ViewControllerInteractorTests.swift */,
+				2B72E69B28450C79000382D2 /* ViewControllerTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		2B72E6A128450DD0000382D2 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				2B72E6A228450DE5000382D2 /* FlickrModel+Factory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		2BF70D612842141E00B24910 /* View */ = {
@@ -364,7 +412,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B72E691284507FE000382D2 /* ViewControllerPresenterSpy.swift in Sources */,
+				2B72E6A328450DE5000382D2 /* FlickrModel+Factory.swift in Sources */,
+				2B72E6952845092C000382D2 /* ViewControllerSpy.swift in Sources */,
+				2B72E6932845080F000382D2 /* ViewControllerInteractorSpy.swift in Sources */,
+				2B72E69A28450BB3000382D2 /* ViewControllerInteractorTests.swift in Sources */,
+				2B72E69828450A64000382D2 /* ViewControllerPresenterTests.swift in Sources */,
+				2B72E69E28450C99000382D2 /* ViewControllerWorkerSpy.swift in Sources */,
 				2B36860E284004AC001ADE7B /* CollectionViewAppTests.swift in Sources */,
+				2B72E69C28450C79000382D2 /* ViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

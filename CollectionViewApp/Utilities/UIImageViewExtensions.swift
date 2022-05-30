@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 protocol DownloadIndicatorProtocol {
+    /// Call delegate method when downloading starts
     func startDownloading()
+    /// Call delegate method when download is completed
     func downloadCompleted()
 }
 
