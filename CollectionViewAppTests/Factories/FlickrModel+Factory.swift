@@ -21,14 +21,27 @@ extension FlickrModel.PhotoModel {
                                isfamily: 0,
                                photoUrl: nil)
     }
+    
+    static func createPreviousPagePhoto() -> FlickrModel.PhotoModel {
+        FlickrModel.PhotoModel(id: "5210444938111",
+                               owner: "195336741@N02",
+                               secret: "702555bfc4",
+                               server: "65535",
+                               farm: 66,
+                               title: "Electrolux Washing Machine 2",
+                               ispublic: 1,
+                               isfriend: 0,
+                               isfamily: 0,
+                               photoUrl: nil)
+    }
 }
 
 extension FlickrModel.PhotoCollection {
     static func create() -> FlickrModel.PhotoCollection {
         FlickrModel.PhotoCollection(page: 1,
-                                    pages: 1,
+                                    pages: 2,
                                     perpage: 1,
-                                    total: 1,
+                                    total: 2,
                                     photo: [FlickrModel.PhotoModel.create()])
     }
 }

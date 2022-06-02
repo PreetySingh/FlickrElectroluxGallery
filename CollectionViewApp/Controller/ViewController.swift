@@ -20,15 +20,21 @@ protocol DisplayPhotosProtocol: AnyObject {
     /// - Parameters:
     /// - imageView: Full Screen Image View
     func showFullScreenImage(imageView: ImageDetailView)
+    /// Set current page number
+    /// - Parameters:
+    ///    - pageNumber: Latest page number that is rendered on UI
+    func setCurrentPageNumber(pageNumber: Int)
 }
 
 class ViewController: UIViewController {
 
-    let cellIdentifier = "FlickrPhotoCell"
+    let cellIdentifier = Constants.StringConstants.flickrCellIdentifier
     let activityIndicator = UIActivityIndicatorView(style: .large)
+    let footerActivityIndicator = UIActivityIndicatorView(style: .large)
     let interactor: ViewControllerInteractorProtocol?
     var fullScreenView: ImageDetailView?
     var flickrImages: [FlickrModel.PhotoModel]?
+    var currentPageNumber: Int = 0
     
     // MARK: Private Properties
     private lazy var photoCollectionView = UICollectionView(frame: view.frame, collectionViewLayout: customLayout)
@@ -75,8 +81,14 @@ class ViewController: UIViewController {
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         // Register Cell
-        photoCollectionView.register(FlickrPhotoCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        photoCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
+        photoCollectionView.register(FlickrPhotoCell.self,
+                                     forCellWithReuseIdentifier: cellIdentifier)
+        photoCollectionView.register(UICollectionViewCell.self,
+                                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                     withReuseIdentifier: Constants.StringConstants.headerViewCellIdentifier)
+        photoCollectionView.register(UICollectionViewCell.self,
+                                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                     withReuseIdentifier: Constants.StringConstants.footerViewCellIdentifier)
         // Set Constraints
         photoCollectionView.alignToSuperView(superView: view)
         // Add Loading Spinner
@@ -88,11 +100,19 @@ class ViewController: UIViewController {
 
 extension ViewController: DisplayPhotosProtocol, FullScreenImageViewProtocol {
     func showLoading() {
-        activityIndicator.startAnimating()
+        if currentPageNumber == 0 {
+            activityIndicator.startAnimating()
+        } else {
+            footerActivityIndicator.startAnimating()
+        }
     }
     
     func stopLoading() {
-        activityIndicator.stopAnimating()
+        if currentPageNumber == 0 {
+            activityIndicator.stopAnimating()
+        } else {
+            footerActivityIndicator.stopAnimating()
+        }
     }
     
     func showImages(images: [FlickrModel.PhotoModel]) {
@@ -115,6 +135,10 @@ extension ViewController: DisplayPhotosProtocol, FullScreenImageViewProtocol {
     func dismissFullScreenMode() {
         fullScreenView?.removeFromSuperview()
         fullScreenView = nil
+    }
+    
+    func setCurrentPageNumber(pageNumber: Int) {
+        currentPageNumber = pageNumber
     }
 }
 

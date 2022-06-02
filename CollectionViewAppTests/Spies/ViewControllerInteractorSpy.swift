@@ -45,4 +45,16 @@ class ViewControllerInteractorSpy: ViewControllerInteractorProtocol {
         invokedShowPhotoParameters = (flickrImage, ())
         invokedShowPhotoParametersList.append((flickrImage, ()))
     }
+
+    var invokedShouldFetchNextPage = false
+    var invokedShouldFetchNextPageCount = 0
+    var invokedShouldFetchNextPageParameters: (pageNumber: Int, Void)?
+    var invokedShouldFetchNextPageParametersList = [(pageNumber: Int, Void)]()
+
+    func shouldFetchNextPage(pageNumber: Int) {
+        invokedShouldFetchNextPage = true
+        invokedShouldFetchNextPageCount += 1
+        invokedShouldFetchNextPageParameters = (pageNumber, ())
+        invokedShouldFetchNextPageParametersList.append((pageNumber, ()))
+    }
 }

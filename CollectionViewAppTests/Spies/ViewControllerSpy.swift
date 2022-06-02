@@ -49,4 +49,16 @@ class ViewControllerSpy: DisplayPhotosProtocol {
         invokedShowFullScreenImageParameters = (imageView, ())
         invokedShowFullScreenImageParametersList.append((imageView, ()))
     }
+
+    var invokedSetCurrentPageNumber = false
+    var invokedSetCurrentPageNumberCount = 0
+    var invokedSetCurrentPageNumberParameters: (pageNumber: Int, Void)?
+    var invokedSetCurrentPageNumberParametersList = [(pageNumber: Int, Void)]()
+
+    func setCurrentPageNumber(pageNumber: Int) {
+        invokedSetCurrentPageNumber = true
+        invokedSetCurrentPageNumberCount += 1
+        invokedSetCurrentPageNumberParameters = (pageNumber, ())
+        invokedSetCurrentPageNumberParametersList.append((pageNumber, ()))
+    }
 }

@@ -45,4 +45,12 @@ class ViewControllerPresenterSpy: ViewControllerPresenterProtocol {
         invokedShowFullScreenImageParameters = (imageUrl, ())
         invokedShowFullScreenImageParametersList.append((imageUrl, ()))
     }
+
+    var invokedResetPhotosArray = false
+    var invokedResetPhotosArrayCount = 0
+
+    func resetPhotosArray() {
+        invokedResetPhotosArray = true
+        invokedResetPhotosArrayCount += 1
+    }
 }

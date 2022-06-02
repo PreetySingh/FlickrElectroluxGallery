@@ -32,10 +32,38 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerCellId", for: indexPath)
-        headerView.addSubview(tagSearchBar)
-        tagSearchBar.alignToSuperView(superView: headerView)
-        return headerView
+        if kind == UICollectionView.elementKindSectionHeader {
+            // Initialise Header View
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                             withReuseIdentifier: Constants.StringConstants.headerViewCellIdentifier,
+                                                                             for: indexPath)
+            headerView.addSubview(tagSearchBar)
+            tagSearchBar.alignToSuperView(superView: headerView)
+            return headerView
+        } else {
+            // Initialise Footer Loading View
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                             withReuseIdentifier: Constants.StringConstants.footerViewCellIdentifier,
+                                                                             for: indexPath)
+            let footerBackgroudView = UIView.init(frame: CGRect(x: 0, y: 0, width: collectionView.frame.width, height: 48))
+            footerBackgroudView.backgroundColor = .clear
+            footerBackgroudView.addSubview(footerActivityIndicator)
+            footerView.addSubview(footerBackgroudView)
+            footerActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            footerActivityIndicator.alignToCentre(superView: footerBackgroudView)
+            return footerView
+        }
+    }
+}
+
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            interactor?.shouldFetchNextPage(pageNumber: currentPageNumber)
+        }
     }
 }
 

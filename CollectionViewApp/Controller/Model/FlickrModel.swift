@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Flickr Data Models
-struct FlickrModel: Codable, Equatable {
+struct FlickrModel: Codable, Equatable, Hashable {
     
     struct Photos: Codable, Equatable {
         let photos: PhotoCollection
@@ -25,7 +25,7 @@ struct FlickrModel: Codable, Equatable {
     }
     
     // MARK: - Photo Model
-    struct PhotoModel: Codable,Equatable {
+    struct PhotoModel: Codable,Equatable, Hashable {
         let id: String
         let owner: String
         let secret: String

@@ -17,4 +17,10 @@ struct Constants {
         static let searchUsingHashtagUrl = "https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=\(Constants.appAPIKey)&per_page=21&format=json&nojsoncallback=1"
         static let downloadImageBaseUrl = "https://live.staticflickr.com/"
     }
+    
+    struct StringConstants {
+        static let flickrCellIdentifier = "FlickrPhotoCell"
+        static let headerViewCellIdentifier = "headerViewCellId"
+        static let footerViewCellIdentifier = "footerViewCellId"
+    }
 }
